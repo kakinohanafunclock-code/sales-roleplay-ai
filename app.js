@@ -172,7 +172,7 @@ async function init3DAvatar() {
 
     // カメラ
     camera = new THREE.PerspectiveCamera(30, width / height, 0.1, 100);
-    camera.position.set(0, 1.4, 2.5);
+    camera.position.set(0, 1.4, -2.5); // Z座標を負の値に変更
     camera.lookAt(0, 1.3, 0);
 
     // ライト
