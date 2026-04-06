@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SES営業ロールプレイAI - AIアバターと対話しながら営業力を磨く">
+    <title>SES営業ロープレAI - サーバー版</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 SES営業ロープレAI</h1>
+            <p>AIアバターと対話しながら営業力を磨く</p>
+        </div>
+
+        <!-- 設定画面（APIキー不要版） -->
+        <div id="setupScreen" class="setup-screen">
+            <div class="setup-section">
+                <h3>① 顧客の難易度を選択</h3>
+                <div class="option-group">
+                    <button class="option-btn" data-type="difficulty" data-value="やさしい">😊 やさしい</button>
+                    <button class="option-btn" data-type="difficulty" data-value="普通">😐 普通</button>
+                    <button class="option-btn" data-type="difficulty" data-value="厳しい">😠 厳しい</button>
+                    <button class="option-btn" data-type="difficulty" data-value="超リアル">🔥 超リアル</button>
+                </div>
+            </div>
+
+            <div class="setup-section">
+                <h3>② 顧客の業界を選択</h3>
+                <div class="option-group">
+                    <button class="option-btn" data-type="industry" data-value="SIer（一次請け）">🏢 SIer（一次請け）</button>
+                    <button class="option-btn" data-type="industry" data-value="SIer（二次請け）">🏭 SIer（二次請け）</button>
+                    <button class="option-btn" data-type="industry" data-value="自社開発企業">💻 自社開発企業</button>
+                    <button class="option-btn" data-type="industry" data-value="インフラ企業">🌐 インフラ企業</button>
+                    <button class="option-btn" data-type="industry" data-value="第三者検証企業">✅ 第三者検証企業</button>
+                </div>
+            </div>
+
+            <div class="setup-section">
+                <h3>③ ロープレのシーンを選択</h3>
+                <div class="option-group">
+                    <button class="option-btn" data-type="scene" data-value="初回訪問">👋 初回訪問</button>
+                    <button class="option-btn" data-type="scene" data-value="案件ヒアリング">📝 案件ヒアリング</button>
+                    <button class="option-btn" data-type="scene" data-value="追加要員相談">➕ 追加要員相談</button>
+                    <button class="option-btn" data-type="scene" data-value="単価交渉">💰 単価交渉</button>
+                    <button class="option-btn" data-type="scene" data-value="トラブル対応">🚨 トラブル対応</button>
+                    <button class="option-btn" data-type="scene" data-value="既存顧客深耕">🤝 既存顧客深耕</button>
+                </div>
+            </div>
+
+            <button id="startBtn" class="start-btn" disabled>ロープレを開始する</button>
+        </div>
+
+        <!-- 対話画面 -->
+        <div id="chatScreen" class="chat-screen hidden">
+            <div class="avatar-container">
+                <canvas id="avatarCanvas"></canvas>
+                <div class="emotion-indicator" id="emotionIndicator">😐 通常</div>
+                <div class="avatar-info" id="avatarInfo">✓ アバター準備完了</div>
+            </div>
+
+            <div class="chat-info">
+                <span class="info-tag" id="difficultyTag"></span>
+                <span class="info-tag" id="industryTag"></span>
+                <span class="info-tag" id="sceneTag"></span>
+            </div>
+
+            <div id="chatMessages" class="chat-messages"></div>
+
+            <div class="controls">
+                <button id="micBtn" class="mic-btn">🎤</button>
+                <div id="statusText" class="status-text">マイクボタンを押して話す</div>
+                <button id="resetBtn" class="reset-btn">設定に戻る</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+        }
+    }
+    </script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>

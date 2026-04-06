@@ -1,0 +1,459 @@
+/* ============================================
+   グローバルスタイル
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* ============================================
+   コンテナ
+   ============================================ */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.header p {
+    opacity: 0.9;
+    font-size: 14px;
+}
+
+/* ============================================
+   APIキー入力画面
+   ============================================ */
+.api-key-screen {
+    padding: 60px 40px;
+    text-align: center;
+}
+
+.api-key-screen h2 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.api-key-screen > p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.api-key-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.api-key-input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.api-submit-btn {
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.api-submit-btn:hover {
+    transform: translateY(-2px);
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 20px;
+    border: 1px solid #f5c6cb;
+}
+
+.api-help {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-align: left;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.api-help h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.api-help ol {
+    margin-left: 20px;
+    color: #666;
+    line-height: 1.8;
+}
+
+.api-help a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.api-help a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   設定画面
+   ============================================ */
+.setup-screen {
+    padding: 40px;
+}
+
+.setup-section {
+    margin-bottom: 30px;
+}
+
+.setup-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.option-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.option-btn {
+    padding: 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 15px;
+    text-align: center;
+}
+
+.option-btn:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.option-btn.selected {
+    border-color: #667eea;
+    background: #667eea;
+    color: white;
+}
+
+.start-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    margin-top: 20px;
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+}
+
+.start-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ============================================
+   対話画面
+   ============================================ */
+.chat-screen {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 40px);
+    max-height: 900px;
+}
+
+.avatar-container {
+    position: relative;
+}
+
+#avatarCanvas {
+    width: 100%;
+    height: 500px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    display: block;
+}
+
+.avatar-info {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 12px;
+    z-index: 10;
+}
+
+.emotion-indicator {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 14px;
+    z-index: 10;
+}
+
+.chat-info {
+    background: #f8f9fa;
+    padding: 15px 30px;
+    border-bottom: 1px solid #e0e0e0;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.info-tag {
+    background: #667eea;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 30px;
+    background: #fafafa;
+}
+
+.message {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message.user {
+    align-items: flex-end;
+}
+
+.message.ai {
+    align-items: flex-start;
+}
+
+.message-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 5px;
+    padding: 0 10px;
+}
+
+.message-bubble {
+    max-width: 70%;
+    padding: 15px 20px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.message.user .message-bubble {
+    background: #667eea;
+    color: white;
+}
+
+.message.ai .message-bubble {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+}
+
+.advice-box {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    border-radius: 12px;
+    padding: 15px;
+    margin-top: 10px;
+    max-width: 70%;
+}
+
+.advice-box h4 {
+    color: #856404;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.advice-box ul {
+    margin-left: 20px;
+}
+
+.advice-box li {
+    color: #856404;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.controls {
+    padding: 20px 30px;
+    background: white;
+    border-top: 1px solid #e0e0e0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.mic-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mic-btn:hover {
+    transform: scale(1.1);
+}
+
+.mic-btn.recording {
+    background: #ff4444;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.status-text {
+    flex: 1;
+    color: #666;
+    font-size: 14px;
+}
+
+.reset-btn {
+    padding: 12px 24px;
+    background: #6c757d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s;
+}
+
+.reset-btn:hover {
+    background: #5a6268;
+}
+
+/* ============================================
+   レスポンシブ対応
+   ============================================ */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        border-radius: 15px;
+    }
+
+    .header {
+        padding: 20px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .api-key-screen {
+        padding: 40px 20px;
+    }
+
+    .setup-screen {
+        padding: 20px;
+    }
+
+    .option-group {
+        grid-template-columns: 1fr;
+    }
+
+    #avatarCanvas {
+        height: 300px;
+    }
+
+    .chat-messages {
+        padding: 15px;
+    }
+
+    .message-bubble {
+        max-width: 85%;
+    }
+
+    .advice-box {
+        max-width: 85%;
+    }
+
+    .controls {
+        padding: 15px;
+    }
+
+    .mic-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+}
